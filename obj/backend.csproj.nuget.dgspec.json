@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nmelgarejo\\Desktop\\documentar-informacion\\backend\\backend.csproj": {}
+    "C:\\Users\\MelgarejoNicolasMa\\Desktop\\carpetas\\front\\Sistema-de-Carpetas-BackEnd\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nmelgarejo\\Desktop\\documentar-informacion\\backend\\backend.csproj": {
+    "C:\\Users\\MelgarejoNicolasMa\\Desktop\\carpetas\\front\\Sistema-de-Carpetas-BackEnd\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nmelgarejo\\Desktop\\documentar-informacion\\backend\\backend.csproj",
+        "projectUniqueName": "C:\\Users\\MelgarejoNicolasMa\\Desktop\\carpetas\\front\\Sistema-de-Carpetas-BackEnd\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\nmelgarejo\\Desktop\\documentar-informacion\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\nmelgarejo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nmelgarejo\\Desktop\\documentar-informacion\\backend\\obj\\",
+        "projectPath": "C:\\Users\\MelgarejoNicolasMa\\Desktop\\carpetas\\front\\Sistema-de-Carpetas-BackEnd\\backend.csproj",
+        "packagesPath": "C:\\Users\\MelgarejoNicolasMa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MelgarejoNicolasMa\\Desktop\\carpetas\\front\\Sistema-de-Carpetas-BackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nmelgarejo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MelgarejoNicolasMa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -108,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using backend.data;
 using backend.models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers
 {
@@ -65,6 +66,7 @@ namespace backend.Controllers
                 }
 
             }
+
             
             List<TablaCarpetas> tablaCarpetasList = await _context.tablaCarpetas.ToListAsync();
             for (int i = 0; i < carpetaList.Count; i++)
@@ -215,7 +217,123 @@ namespace backend.Controllers
                 return Ok("success");
             }
         }
+        [AllowAnonymous]
+        [HttpGet("carpetaPer")]
+        public async Task<ActionResult<IEnumerable<Carpeta>>> CarpetaPer()
+        {
+            if (_context.carpeta == null)
+            {
+                return NotFound();
+            }
+            List<Carpeta> carpetaList = await _context.carpeta.ToListAsync();
+            List<Archivo> archivosList = await _context.archivo.ToListAsync();
+            for (int i = 0; i > carpetaList.Count; i++)
+            {
+                for (int j = 0; j < archivosList.Count; j++)
+                {
+                    if (carpetaList[i].Archivos == null)
+                    {
 
+                        carpetaList[i].Archivos = new List<Archivo>();
+                    }
+                    if (archivosList[j].CarpetaId == carpetaList[i].Id)
+                    {
+                        carpetaList[i].Archivos.Add(archivosList[j]);
+                    }
+                }
+
+            }
+            for (int i = 0; i < carpetaList.Count; i++)
+            {
+                for (int j = 0; j < archivosList.Count; j++)
+                {
+                    if (carpetaList[i].Archivos == null)
+                    {
+
+                        carpetaList[i].Archivos = new List<Archivo>();
+                    }
+
+                    if (archivosList[j].NombreArchivo == "vacio")
+                    {
+                        carpetaList[i].Archivos.Remove(archivosList[j]);
+                    }
+                }
+
+            }
+
+
+            List<TablaCarpetas> tablaCarpetasList = await _context.tablaCarpetas.ToListAsync();
+            for (int i = 0; i < carpetaList.Count; i++)
+            {
+                for (int j = 0; j < tablaCarpetasList.Count; j++)
+                {
+                    if (tablaCarpetasList[j].NombreCarpeta == carpetaList[i].NombreCarpeta)
+                    {
+                        if (carpetaList[i].TablaCarpetas == null)
+                        {
+
+                            carpetaList[i].TablaCarpetas = new List<TablaCarpetas>();
+                        }
+                        carpetaList[i].TablaCarpetas.Add(tablaCarpetasList[j]);
+                    }
+                    else
+                    {
+                        if (carpetaList[i].TablaCarpetas != null)
+                        {
+                            carpetaList[i].TablaCarpetas.Remove(tablaCarpetasList[j]);
+
+                        }
+                    }
+                }
+            }
+
+
+            for (int i = 0; i < carpetaList.Count; i++)
+            {
+                for (int j = 0; j < carpetaList[i].TablaCarpetas.Count; j++)
+                {
+                    for (int y = 0; y < carpetaList.Count; y++)
+                    {
+                        if (carpetaList[i].TablaCarpetas[j].CarpetaId == carpetaList[y].Id)
+                        {
+                            for (int e = 0; e < carpetaList[y].TablaCarpetas.Count; e++)
+                            {
+                                for (int x = 0; x < carpetaList.Count; x++)
+                                {
+                                    if (carpetaList[y].TablaCarpetas[e].CarpetaId == carpetaList[x].Id)
+                                    {
+                                        for (int q = 0; q < carpetaList[x].TablaCarpetas.Count; q++)
+                                        {
+                                            for (int d = 0; d < carpetaList.Count; d++)
+                                            {
+                                                if (carpetaList[x].TablaCarpetas[q].CarpetaId == carpetaList[d].Id)
+                                                {
+                                                    for (int u = 0; u < carpetaList[d].TablaCarpetas.Count; u++)
+                                                    {
+                                                        for (int h = 0; h < carpetaList.Count; h++)
+                                                        {
+                                                            if (carpetaList[d].TablaCarpetas[u].CarpetaId == carpetaList[h].Id)
+                                                            {
+                                                                
+                                                               carpetaList.Remove(carpetaList[h]);
+                                                                        
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return carpetaList;
+        }
         // DELETE: api/Carpeta/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCarpeta(int id)
