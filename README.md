@@ -1,2 +1,2 @@
-#  Sistema de Carpetas para documensacion:
+#  Sistema de Carpetas para documentación:
 - Este es un proyecto que realicé durante mi pasantía. Cabe mencionar que, al ser un proyecto desarrollado por alguien que recién se estaba adaptando al mundo de la programación, puede no seguir las mejores prácticas. No obstante, con el tiempo, todos mejoramos. Considero que presentar un proyecto funcional para guardar documentación es valioso, incluso si el código no es óptimo.
